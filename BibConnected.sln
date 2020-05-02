@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibConnected.wpf", "BibConnected.wpf\BibConnected.wpf.csproj", "{925F697E-48C0-4C1F-8AF3-B4056B53100D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibConnected.Lib", "BibConnected.Lib\BibConnected.Lib.csproj", "{97CD54C7-8520-41E1-8317-D8421979E4F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{925F697E-48C0-4C1F-8AF3-B4056B53100D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925F697E-48C0-4C1F-8AF3-B4056B53100D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925F697E-48C0-4C1F-8AF3-B4056B53100D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925F697E-48C0-4C1F-8AF3-B4056B53100D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97CD54C7-8520-41E1-8317-D8421979E4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97CD54C7-8520-41E1-8317-D8421979E4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97CD54C7-8520-41E1-8317-D8421979E4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97CD54C7-8520-41E1-8317-D8421979E4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27211261-80EF-403A-AB99-A9B3B67C99B7}
+	EndGlobalSection
+EndGlobal
