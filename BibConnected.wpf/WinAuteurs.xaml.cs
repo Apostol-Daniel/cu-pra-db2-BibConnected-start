@@ -45,6 +45,21 @@ namespace BibConnected.wpf
             }
         }
 
+        private void ViewStandaard()
+        {
+            grpKnoppen.IsEnabled = true;
+            grpBewerken.IsEnabled = false;
+            lstAuteurs.IsEnabled = true;
+            grpBewerken.Header = "";
+        }
+
+        private void ViewBewerking()
+        {
+            grpKnoppen.IsEnabled = false;
+            grpBewerken.IsEnabled = true;
+            lstAuteurs.IsEnabled = false;
+        }
+
         bool nieuweAuteur;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
