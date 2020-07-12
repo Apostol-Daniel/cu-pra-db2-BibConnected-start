@@ -24,5 +24,22 @@ namespace BibConnected.Lib
             sql += "order by" + veldNaam + " " + volgorder.ToString();
             return DBConnector.ExecuteSelect(sql);
         }
+
+        public static bool VoegAuteurToe(string nieuweAuteur)
+        {
+            string sql;
+            nieuweAuteur = Helper.HandleQuotes(nieuweAuteur);
+            if (nieuweAuteur.Length == 0) 
+                return false;
+            if (nieuweAuteur.Length > 30)
+                nieuweAuteur = nieuweAuteur.Substring(0, 30);
+
+            sql = "select max(auteur_id) from auteur";
+            int nieuweAuteur_id = int.Parse(DBConnector.ExecuteSelect(sql).Rows[0][0].ToString() + 1);
+
+            sql = $"insert into auteur (auteur_id, naam) values ({nieuweAuteur_id },'{nieuweAuteur }')";
+            return DBConnector.ExecuteCommand(sql);
+        }
+
     } 
 }
