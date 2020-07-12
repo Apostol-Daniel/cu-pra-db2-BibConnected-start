@@ -25,9 +25,31 @@ namespace BibConnected.wpf
         {
             InitializeComponent();
         }
+
+        private void VulDeAuteurs()
+        {
+            VulDeAuteurs(Enumeraties.SortOrder.ASC);
+        }
+
+        private void VulDeAuteurs(Enumeraties.SortOrder volgorde)
+        {
+            lstAuteurs.Items.Clear();
+            DataTable dtAuteurs = Auteur.GeefAlleAuteurs("naam", volgorde);
+            ListBoxItem itm;
+            for(int r = 0; r < dtAuteurs.Rows.Count; r++)
+            {
+                itm = new ListBoxItem();
+                itm.Content = dtAuteurs.Rows[r]["naam"].ToString();
+                itm.Tag = dtAuteurs.Rows[r]["auteur_id"].ToString();
+                lstAuteurs.Items.Add(itm);
+            }
+        }
+
         bool nieuweAuteur;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            VulDeAuteurs();
+            //ViewStandaard();
         }
         private void lstAuteurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
