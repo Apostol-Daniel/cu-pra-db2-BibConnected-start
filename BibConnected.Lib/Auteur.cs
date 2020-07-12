@@ -10,6 +10,11 @@ namespace BibConnected.Lib
 {
     public class Auteur
     {
-
+        public static DataTable GeefAlleAuteurs()
+        {
+            string sql;
+            sql = "select * from auteur";
+            return DBConnector.ExecuteSelect(sql);
+        }
     }
 }
