@@ -30,5 +30,24 @@ namespace BibConnected.Lib
             return ds.Tables[0];
         }
 
+        public static bool ExecuteCommand(string sqlInstructie) 
+        {
+            string constring = ConfigurationManager.ConnectionStrings["bibliotheek"].ToString();
+            SqlConnection mijnVerbinding = new SqlConnection(constring);
+            SqlCommand mijnOpdracht = new SqlCommand(sqlInstructie, mijnVerbinding);
+            try
+            {
+                mijnOpdracht.Connection.Open();
+                mijnOpdracht.ExecuteNonQuery();
+                mijnVerbinding.Close();
+                return true;
+            }
+            catch (Exception fout)
+            {
+                string foutmelding = fout.Message;
+                return false;
+            }
+        }
+
     }
 }
