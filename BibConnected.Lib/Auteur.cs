@@ -16,5 +16,13 @@ namespace BibConnected.Lib
             sql = "select * from auteur";
             return DBConnector.ExecuteSelect(sql);
         }
-    }
+
+        public static DataTable GeefAlleAuteurs(string veldNaam, Enumeraties.SortOrder volgorder)
+        {
+            string sql;
+            sql = "select * from auteur";
+            sql += "order by" + veldNaam + " " + volgorder.ToString();
+            return DBConnector.ExecuteSelect(sql);
+        }
+    } 
 }
