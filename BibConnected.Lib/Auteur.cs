@@ -51,5 +51,16 @@ namespace BibConnected.Lib
             string sql = $"update auteur set naam = '{naam}' where auteur_id = {auteur_id}";
             return DBConnector.ExecuteCommand(sql);
         }
+
+        public static bool VerwijderAuteur(int auteur_id)
+        {
+            string sql;
+            sql = $"select count(*) from boeken where auteur_id = {auteur_id}";
+            if (DBConnector.ExecuteSelect(sql).Rows[0][0].ToString() != "0")
+                return false;
+
+            sql = $"delete from auteur where auteur_id = {auteur_id}";
+            return DBConnector.ExecuteCommand(sql);
+        }
     } 
 }
