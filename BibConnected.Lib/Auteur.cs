@@ -41,5 +41,15 @@ namespace BibConnected.Lib
             return DBConnector.ExecuteCommand(sql);
         }
 
+        public static bool WijzigAuteur(int auteur_id, string naam)
+        {
+            naam = Helper.HandleQuotes(naam);
+            if (naam.Length == 0)
+                return false;
+            if (naam.Length > 30)
+                naam = naam.Substring(0, 30);
+            string sql = $"update auteur set naam = '{naam}' where auteur_id = {auteur_id}";
+            return DBConnector.ExecuteCommand(sql);
+        }
     } 
 }
