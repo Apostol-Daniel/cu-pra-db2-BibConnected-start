@@ -43,10 +43,31 @@ namespace BibConnected.wpf
             lstCategorieen.IsEnabled = false;
         }
 
+        private void VulDeCategoirieen(Enumeraties.SortOrder volgorde)
+        {
+            //lstCategorieen.Items.Clear();
+            //ListBoxItem itm;
+            //string sql = "select categorie, cat_id from categorie order by 1";
+            //string constring = ConfigurationManager.ConnectionStrings["bibliotheek"].ToString();
+            //SqlConnection mijnVerbinding = new SqlConnection(constring);
+            //mijnVerbinding.Open();
+            //SqlCommand mijnOpdracht = new SqlCommand(sql, mijnVerbinding);
+            //SqlDataReader rdr = mijnOpdracht.ExecuteReader();
+            //while (rdr.Read())
+            //{
+            //    itm = new ListBoxItem();
+            //    itm.Content = rdr.GetString(0);
+            //    itm.Tag = rdr.GetInt32(1);
+            //    lstCategorieen.Items.Add(itm);
+            //}
+            //mijnVerbinding.Close();
+        }
+
         bool nieuweCategorie;
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        { 
-            
+        {
+            //VulDeCategoirieen();
+            ViewStandaard();
         }
         private void lstCategorieen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         { 
