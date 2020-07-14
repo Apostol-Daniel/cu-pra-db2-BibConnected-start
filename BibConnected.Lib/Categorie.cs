@@ -20,5 +20,21 @@ namespace BibConnected.Lib
             else
                 return null;
         }
+
+        public static bool VoegCategorieToe(string niueweCategorie)
+        {
+            string sql;
+            niueweCategorie = Helper.HandleQuotes(niueweCategorie);
+            if (niueweCategorie.Length == 0)
+                return false;
+            if (niueweCategorie.Length > 30)
+                niueweCategorie = niueweCategorie.Substring(0, 30);
+
+            sql = "select max(cat_id) from categorie";
+            int nieuwecat_id = int.Parse(DBConnector.ExecuteScalaire(sql) + 1);
+
+            sql = $"insert into categorie (cat_id, categorie) values ({nieuwecat_id},'{niueweCategorie}')";
+                return DBConnector.ExecuteCommand(sql);
+        }
     }
 }
