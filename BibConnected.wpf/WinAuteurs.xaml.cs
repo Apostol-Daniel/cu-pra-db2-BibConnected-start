@@ -100,6 +100,31 @@ namespace BibConnected.wpf
         }
         private void btnBewaren_Click(object sender, RoutedEventArgs e)
         {
+            if(nieuweAuteur)
+            {
+                if (Auteur.VoegAuteurToe(txtNaam.Text))
+                {
+                    VulDeAuteurs();
+                }
+                else
+                {
+                    MessageBox.Show("Er heeft zich een fout voorgedaan", "Auteur niet toegevoegd");
+                }
+            }
+            else
+            {
+               ListBoxItem itm = (ListBoxItem)lstAuteurs.SelectedItem;
+               int auteur_id = int.Parse(itm.Tag.ToString());
+               if (Auteur.WijzigAuteur(auteur_id, txtNaam.Text))
+                {
+                    VulDeAuteurs();
+                }
+                else
+                {
+                    MessageBox.Show("Er heeft zich een fout voorgedaan", "Auteur niet gewijzg");
+                }
+                ViewStandaard();
+            }
         }
         private void btnVerwijder_Click(object sender, RoutedEventArgs e)
         {
