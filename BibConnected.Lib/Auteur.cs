@@ -10,6 +10,19 @@ namespace BibConnected.Lib
 {
     public class Auteur
     {
+        public static string ZoekNaam(int auteur_id)
+        {
+            string sql;
+            sql = "select * from auteur where auteur_id =" + auteur_id.ToString();
+            DataTable dtAuteur = DBConnector.ExecuteSelect(sql);
+            if (dtAuteur.Rows.Count > 0)
+            {
+                return dtAuteur.Rows[0]["naam"].ToString();
+            }
+            else
+                return null;
+        }
+
         public static DataTable GeefAlleAuteurs()
         {
             string sql;
