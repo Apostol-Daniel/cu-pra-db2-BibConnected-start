@@ -88,6 +88,13 @@ namespace BibConnected.wpf
         }
         private void btnWijzig_Click(object sender, RoutedEventArgs e)
         {
+            if(lstCategorieen.SelectedIndex >= 0)
+            {
+                grpBewerken.Header = "Een categorie wijzigen";
+                nieuweCategorie = false;
+                ViewBewerking();
+                txtcategorie.Focus();
+            }
         }
         private void btnAnnuleren_Click(object sender, RoutedEventArgs e)
         {
