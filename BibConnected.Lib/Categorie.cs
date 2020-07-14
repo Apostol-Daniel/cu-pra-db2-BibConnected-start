@@ -36,5 +36,16 @@ namespace BibConnected.Lib
             sql = $"insert into categorie (cat_id, categorie) values ({nieuwecat_id},'{niueweCategorie}')";
                 return DBConnector.ExecuteCommand(sql);
         }
+
+        public static bool WijzigCategorie ( int cat_id, string categorie)
+        {
+            categorie = Helper.HandleQuotes(categorie);
+            if (categorie.Length == 0)
+                return false;
+            if (categorie.Length > 30)
+                 categorie = categorie.Substring(0, 30);
+            string sql = $"update categorie set categorie = '{categorie}' where cat_id = {cat_id}";
+            return DBConnector.ExecuteCommand(sql);
+        }
     }
 }
