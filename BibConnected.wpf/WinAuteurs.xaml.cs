@@ -85,6 +85,13 @@ namespace BibConnected.wpf
         }
         private void btnWijzig_Click(object sender, RoutedEventArgs e)
         {
+            if (lstAuteurs.SelectedIndex >= 0)
+            {
+                grpBewerken.Header = "Een auteur wijzigen";
+                nieuweAuteur = false;
+                ViewBewerking();
+                txtNaam.Focus();
+            }
         }
         private void btnAnnuleren_Click(object sender, RoutedEventArgs e)
         {
