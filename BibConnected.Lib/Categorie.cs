@@ -47,5 +47,16 @@ namespace BibConnected.Lib
             string sql = $"update categorie set categorie = '{categorie}' where cat_id = {cat_id}";
             return DBConnector.ExecuteCommand(sql);
         }
+
+        public static bool VerwijderCategorie(int cat_id)
+        {
+            string sql;
+            sql = $"select count (*) from boeken where cat_id = {cat_id}" ;
+            if (DBConnector.ExecuteScalaire(sql) != "0")
+                return false;
+
+            sql = $"delete form categorie where cat_id = {cat_id}";
+            return DBConnector.ExecuteCommand(sql);
+        }
     }
 }
