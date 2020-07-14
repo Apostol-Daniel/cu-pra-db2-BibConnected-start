@@ -64,10 +64,16 @@ namespace BibConnected.wpf
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             VulDeAuteurs();
-            //ViewStandaard();
+            ViewStandaard();
         }
         private void lstAuteurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(lstAuteurs.SelectedIndex >= 0) 
+            {
+                ListBoxItem itm = (ListBoxItem)lstAuteurs.SelectedItem;
+                int auteur_id = int.Parse(itm.Tag.ToString());
+                txtNaam.Text = Auteur.ZoekNaam(auteur_id);
+            }
         }
         private void btnNieuw_Click(object sender, RoutedEventArgs e)
         {
