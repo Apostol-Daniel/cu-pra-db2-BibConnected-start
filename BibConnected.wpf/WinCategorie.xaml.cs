@@ -98,6 +98,8 @@ namespace BibConnected.wpf
         }
         private void btnAnnuleren_Click(object sender, RoutedEventArgs e)
         {
+            lstCategorieen_SelectionChanged(lstCategorieen, null);
+            ViewStandaard();
         }
         private void btnBewaren_Click(object sender, RoutedEventArgs e)
         {
