@@ -12,6 +12,17 @@ namespace BibConnected.Lib
 {
     public class DBConnector
     {
+        public static string ExecuteScalaire(string sqlScalaiteInstructie)
+        {
+            string constring = ConfigurationManager.ConnectionStrings["bibliotheek"].ToString();
+            SqlConnection mijnVerbinding = new SqlConnection(constring);
+            SqlCommand mijnOpdracht = new SqlCommand(sqlScalaiteInstructie, mijnVerbinding);
+            mijnVerbinding.Open();
+            string retour = mijnOpdracht.ExecuteScalar().ToString();
+            mijnVerbinding.Close();
+            return retour;
+        }
+
 
         public static DataTable ExecuteSelect(string sqlInstructie) 
         {
