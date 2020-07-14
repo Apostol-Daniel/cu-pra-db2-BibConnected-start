@@ -71,6 +71,12 @@ namespace BibConnected.wpf
         }
         private void lstCategorieen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         { 
+            if(lstCategorieen.SelectedIndex >= 0)
+            {
+                ListBoxItem itm = (ListBoxItem)lstCategorieen.SelectedItem;
+                int cat_id = int.Parse(itm.Tag.ToString());
+                txtcategorie.Text = Categorie.ZoekCategorie(cat_id);
+            }
         }
         private void btnNieuw_Click(object sender, RoutedEventArgs e)
         {
