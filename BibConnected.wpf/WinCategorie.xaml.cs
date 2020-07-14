@@ -28,9 +28,25 @@ namespace BibConnected.wpf
             InitializeComponent();
         }
 
+        private void ViewStandaard()
+        {
+            grpKnoppen.IsEnabled = true;
+            grpBewerken.IsEnabled = false;
+            lstCategorieen.IsEnabled = true;
+            grpBewerken.Header = "";
+        }
+
+        private void ViewBewerking ()
+        {
+            grpBewerken.IsEnabled = false;
+            grpBewerken.IsEnabled = true;
+            lstCategorieen.IsEnabled = false;
+        }
+
         bool nieuweCategorie;
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+        { 
+            
         }
         private void lstCategorieen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         { 
