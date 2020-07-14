@@ -77,6 +77,11 @@ namespace BibConnected.wpf
         }
         private void btnNieuw_Click(object sender, RoutedEventArgs e)
         {
+            grpBewerken.Header = "Een nieuwe auteur";
+            nieuweAuteur = true;
+            ViewBewerking();
+            txtNaam.Text = "";
+            txtNaam.Focus();
         }
         private void btnWijzig_Click(object sender, RoutedEventArgs e)
         {
