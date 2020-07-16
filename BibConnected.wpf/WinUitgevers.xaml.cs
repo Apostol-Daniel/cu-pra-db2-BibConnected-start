@@ -26,6 +26,21 @@ namespace BibConnected.wpf
             InitializeComponent();
         }
         bool nieuweUitgever;
+         private void VulDeUitgevers()
+        {
+            lstUitgevers.Items.Clear();
+            DataTable dtUitgevers = Uitgever.GeefAlleUitgevers();
+            ListBoxItem itm;
+            for (int r =0; r < dtUitgevers.Rows.Count;r++)
+            {
+                itm = new ListBoxItem();
+                itm.Content = dtUitgevers.Rows[r]["uitgever"].ToString();
+                itm.Tag = dtUitgevers.Rows[r]["uitg_id"].ToString();
+                lstUitgevers.Items.Add(itm);
+            }
+        }
+
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
         }
