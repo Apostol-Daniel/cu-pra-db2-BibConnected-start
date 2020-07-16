@@ -127,6 +127,23 @@ namespace BibConnected.wpf
         }
         private void btnVerwijder_Click(object sender, RoutedEventArgs e)
         {
+            if(lstUitgevers.SelectedIndex >= 0)
+            {
+                if
+                    (MessageBox.Show("Zeker?", "Uitgever wissen", MessageBoxButton.YesNo,MessageBoxImage.Warning)== MessageBoxResult.Yes)
+                {
+                    ListBoxItem itm = (ListBoxItem)lstUitgevers.SelectedItem;
+                    int uitg_id = int.Parse(itm.Tag.ToString());
+                    if (Uitgever.VerwijderUitgever(uitg_id))
+                    {
+                        VulDeUitgevers();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Er heeft zich een fout voorgedaan", "Uitgever werd nier verwijderd");
+                    }
+                }
+            }
         }
     }
 }
