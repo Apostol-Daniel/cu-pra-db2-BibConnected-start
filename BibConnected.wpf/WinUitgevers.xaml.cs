@@ -84,6 +84,13 @@ namespace BibConnected.wpf
 
         private void btnWijzig_Click(object sender, RoutedEventArgs e)
         {
+            if (lstUitgevers.SelectedIndex >= 0)
+            {
+                grpBewerken.Header = "Een uitgever wijzigen";
+                nieuweUitgever = false;
+                ViewBewerking();
+                txtUitgever.Focus();
+            }
         }
         private void btnAnnuleren_Click(object sender, RoutedEventArgs e)
         {
