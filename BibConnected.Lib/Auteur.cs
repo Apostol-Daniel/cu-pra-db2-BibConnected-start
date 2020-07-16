@@ -10,6 +10,22 @@ namespace BibConnected.Lib
 {
     public class Auteur
     {
+
+        public static DataTable GeefAlleAuteurs()
+        {
+            string sql;
+            sql = "select * from auteur";
+            return DBConnector.ExecuteSelect(sql);
+        }
+
+        public static DataTable GeefAlleAuteurs(string veldNaam, Enumeraties.SortOrder volgorde)
+        {
+            string sql;
+            sql = "select * from auteur";
+            sql += " order by " + veldNaam + " " + volgorde.ToString();
+            return DBConnector.ExecuteSelect(sql);
+        }
+
         public static string ZoekNaam(int auteur_id)
         {
             string sql;
@@ -22,22 +38,6 @@ namespace BibConnected.Lib
             else
                 return null;
         }
-
-        public static DataTable GeefAlleAuteurs()
-        {
-            string sql;
-            sql = "select * from auteur";
-            return DBConnector.ExecuteSelect(sql);
-        }
-
-        public static DataTable GeefAlleAuteurs(string veldNaam, Enumeraties.SortOrder volgorder)
-        {
-            string sql;
-            sql = "select * from auteur";
-            sql += "order by" + veldNaam + " " + volgorder.ToString();
-            return DBConnector.ExecuteSelect(sql);
-        }
-
         public static bool VoegAuteurToe(string nieuweAuteur)
         {
             string sql;
