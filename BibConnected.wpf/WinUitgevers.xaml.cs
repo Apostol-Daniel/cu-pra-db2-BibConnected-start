@@ -26,6 +26,23 @@ namespace BibConnected.wpf
             InitializeComponent();
         }
         bool nieuweUitgever;
+
+        private void ViewStandaard()
+        {
+            grpKnoppen.IsEnabled = true;
+            grpBewerken.IsEnabled = false;
+            lstUitgevers.IsEnabled = true;
+            grpBewerken.Header = "";
+        }
+
+        private void ViewBewerking()
+        {
+            grpKnoppen.IsEnabled = true;
+            grpBewerken.IsEnabled = false;
+            lstUitgevers.IsEnabled = true;
+            grpBewerken.Header = "";
+        }
+
          private void VulDeUitgevers()
         {
             lstUitgevers.Items.Clear();
