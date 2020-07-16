@@ -99,6 +99,31 @@ namespace BibConnected.wpf
         }
         private void btnBewaren_Click(object sender, RoutedEventArgs e)
         {
+            if (nieuweUitgever)
+            {
+                if (Uitgever.VoerUitgeverToe(txtUitgever.Text))
+                {
+                    VulDeUitgevers();
+                }
+                else
+                {
+                    MessageBox.Show("Er heeft zich een fout voorgedaan", "uitgever niet toegevoegd");
+                }
+            }
+            else
+            {
+                ListBoxItem itm = (ListBoxItem)lstUitgevers.SelectedItem;
+                int uitg_id = int.Parse(itm.Tag.ToString());
+                if (Uitgever.WijzigUitgever(uitg_id, txtUitgever.Text))
+                {
+                    VulDeUitgevers();
+                }
+                else
+                {
+                    MessageBox.Show("Er heeft zich een fout voorgedaan", "Uitgever nie gewijzigd");
+                }
+            }
+            ViewStandaard();
         }
         private void btnVerwijder_Click(object sender, RoutedEventArgs e)
         {
