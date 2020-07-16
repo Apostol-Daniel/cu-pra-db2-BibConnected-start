@@ -37,9 +37,9 @@ namespace BibConnected.wpf
 
         private void ViewBewerking()
         {
-            grpKnoppen.IsEnabled = true;
-            grpBewerken.IsEnabled = false;
-            lstUitgevers.IsEnabled = true;
+            grpKnoppen.IsEnabled = false;
+            grpBewerken.IsEnabled = true;
+            lstUitgevers.IsEnabled = false;
             grpBewerken.Header = "";
         }
 

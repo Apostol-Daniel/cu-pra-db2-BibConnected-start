@@ -55,7 +55,7 @@ namespace BibConnected.Lib
             if (DBConnector.ExecuteScalaire(sql) != "0")
                 return false;
 
-            sql = $"delete form categorie where cat_id = {cat_id}";
+            sql = $"delete from categorie where cat_id = {cat_id}";
             return DBConnector.ExecuteCommand(sql);
         }
     }
