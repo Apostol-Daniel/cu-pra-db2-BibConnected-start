@@ -12,6 +12,32 @@ namespace BibConnected.Lib
 {
     public class DBConnector
     {
+        public static bool ExecuteSp(string SPNaam, SqlParameter[] parameters)
+        {
+            string constring = ConfigurationManager.ConnectionStrings["bibliotheek"].ToString();
+            SqlConnection mijnVerbinding = new SqlConnection(constring);
+            SqlCommand mijnOpdracht = new SqlCommand(SPNaam, mijnVerbinding);
+            mijnOpdracht.CommandType = CommandType.StoredProcedure;
+            if(parameters != null)
+            {
+                foreach (SqlParameter p in parameters)
+                    mijnOpdracht.Parameters.Add(p);
+            }
+            try
+            {
+                mijnOpdracht.Connection.Open();
+                mijnOpdracht.ExecuteNonQuery();
+                mijnVerbinding.Close();
+                return true;
+            }
+            catch (Exception fout)
+            {
+                string foutmelding = fout.Message;
+                return false;
+            }
+        }
+
+
         public static DataTable ExecuteSPWithDataTable(string SPNaam, SqlParameter[] parameters)
         {
             string constring = ConfigurationManager.ConnectionStrings["bibliotheek"].ToString();
