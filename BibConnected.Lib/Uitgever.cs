@@ -10,6 +10,26 @@ namespace BibConnected.Lib
 {
     public class Uitgever
     {
+        public static bool WijzigUitgever(int uitg_id, string uitgever)
+        {
+            uitgever = Helper.HandleQuotes(uitgever);
+            if (uitgever.Length == 0)
+                return false;
+            if (uitgever.Length > 30)
+                uitgever = uitgever.Substring(0, 30);
+
+            string sp = "pra_UitgeverEdit";
+            SqlParameter[] param = new SqlParameter[2];
+            param[0] = new SqlParameter();
+            param[1] = new SqlParameter();
+            param[0].ParameterName = "@uitg_id";
+            param[0].Value = uitg_id;
+            param[1].ParameterName = "@uitgever";
+            param[1].Value = uitgever;
+            return DBConnector.ExecuteSp(sp, param);
+        }
+
+
         public static bool VoerUitgeverToe(string nieuweUitgever) 
         {
             nieuweUitgever = Helper.HandleQuotes(nieuweUitgever);
