@@ -10,6 +10,10 @@ namespace BibConnected.Lib
 {
     public class Uitgever
     {
-
+        public static DataTable GeefAlleUitgevers()
+        {
+            string sp = "pra_UitgeverSelectAllAsc";
+            return DBConnector.ExecuteSPWithDataTable(sp, null);
+        }
     }
 }
