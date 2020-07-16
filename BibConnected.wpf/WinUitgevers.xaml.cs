@@ -60,9 +60,17 @@ namespace BibConnected.wpf
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            VulDeUitgevers();
+            ViewStandaard();
         }
         private void lstUitgevers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(lstUitgevers.SelectedIndex >= 0)
+            {
+                ListBoxItem itm = (ListBoxItem)lstUitgevers.SelectedItem;
+                int uitg_id = int.Parse(itm.Tag.ToString());
+                txtUitgever.Text = Uitgever.ZoekUitgever(uitg_id);
+            }
         }
 
         private void btnNieuw_Click(object sender, RoutedEventArgs e)
