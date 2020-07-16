@@ -10,6 +10,17 @@ namespace BibConnected.Lib
 {
     public class Uitgever
     {
+        public static bool VerwijderUitgever(int uitg_id)
+        {
+            string sp = "pra_UitgeverDelete";
+            SqlParameter[] param = new SqlParameter[1];
+            param[0] = new SqlParameter();
+            param[0].ParameterName = "@uitg_id";
+            param[0].Value = uitg_id;
+            return DBConnector.ExecuteSp(sp, param);
+        }
+
+
         public static bool WijzigUitgever(int uitg_id, string uitgever)
         {
             uitgever = Helper.HandleQuotes(uitgever);
