@@ -123,8 +123,8 @@ namespace BibConnected.wpf
                 {
                     MessageBox.Show("Er heeft zich een fout voorgedaan", "Auteur niet gewijzg");
                 }
-                ViewStandaard();
             }
+            ViewStandaard();
         }
         private void btnVerwijder_Click(object sender, RoutedEventArgs e)
         {
