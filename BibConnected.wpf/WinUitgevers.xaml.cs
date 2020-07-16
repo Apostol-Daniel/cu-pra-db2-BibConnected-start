@@ -75,6 +75,11 @@ namespace BibConnected.wpf
 
         private void btnNieuw_Click(object sender, RoutedEventArgs e)
         {
+            grpBewerken.Header = "Een nieuwe uitgever";
+            nieuweUitgever = true;
+            ViewBewerking();
+            txtUitgever.Text = "";
+            txtUitgever.Focus();
         }
 
         private void btnWijzig_Click(object sender, RoutedEventArgs e)
